@@ -43,3 +43,12 @@ Partindo dessa dor pessoal, nasceu a ideia de desenvolver este projeto simples, 
 3. Execute o aplicativo:
    ```bash
    streamlit run app.py
+
+
+## 🌐 Acesso online
+
+Você pode utilizar o dashboard diretamente pelo navegador, sem necessidade de instalação:
+
+🔗 **[Acesse aqui](https://sibionics-glucose-dashboard.onrender.com/)**
+
+Basta **enviar seu arquivo Excel** com os dados de glicemia para visualizar e explorar o painel interativo.
