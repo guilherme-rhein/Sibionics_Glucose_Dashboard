@@ -29,7 +29,7 @@ def main():
         #df.columns = ["DataHora", "Glicemia"]
 	id_colunas = {"Hora": "DataHora",
 		      "Leitura de sensor(mg/dL)": "Glicemia"
-		     }
+	}
 	df.rename(columns=id_colunas, inplace=True)
 	    
 	    
@@ -152,5 +152,6 @@ def main():
 if __name__ == '__main__':
 
 	main()
+
 
 
