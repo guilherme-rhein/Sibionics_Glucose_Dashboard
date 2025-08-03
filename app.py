@@ -23,10 +23,23 @@ def main():
         start = timeit.default_timer()
         df_raw = load_data(data_file_1)
         df = df_raw.copy()
-        df.columns = ["Device","DataHora", "Glicemia"]
-        df["DataHora"] = pd.to_datetime(df["DataHora"].str.replace(" GMT-3", ""), format="%d-%m-%Y %H:%M")
+	df.drop(columns=["deviceModel"], inplace=True, errors='ignore')
+
+	    
+        #df.columns = ["DataHora", "Glicemia"]
+	id_colunas = {"Hora": "DataHora",
+		      "Leitura de sensor(mg/dL)": "Glicemia"
+		     }
+	df.rename(columns=id_colunas, inplace=True)
+	    
+	    
+        #df["DataHora"] = pd.to_datetime(df["DataHora"].str.replace(" GMT-3", ""), format="%d-%m-%Y %H:%M")
+        #df = df.sort_values("DataHora")
+        #df = df.dropna()
+        df["DataHora"] = pd.to_datetime(df["DataHora"].str.replace(" GMT-3", ""), format="%d-%m-%Y %H:%M", errors='coerce')
         df = df.sort_values("DataHora")
-        df = df.dropna()
+        df = df.dropna(subset=["DataHora", "Glicemia"])
+	df = df.dropna()
 
 
         # Filters
@@ -140,3 +153,4 @@ def main():
 if __name__ == '__main__':
 
 	main()
+
