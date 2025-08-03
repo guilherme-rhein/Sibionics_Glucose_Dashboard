@@ -23,7 +23,7 @@ def main():
         start = timeit.default_timer()
         df_raw = load_data(data_file_1)
         df = df_raw.copy()
-        df.columns = ["DataHora", "Glicemia"]
+        df.columns = ["Device","DataHora", "Glicemia"]
         df["DataHora"] = pd.to_datetime(df["DataHora"].str.replace(" GMT-3", ""), format="%d-%m-%Y %H:%M")
         df = df.sort_values("DataHora")
         df = df.dropna()
@@ -138,4 +138,5 @@ def main():
 
 
 if __name__ == '__main__':
+
 	main()
