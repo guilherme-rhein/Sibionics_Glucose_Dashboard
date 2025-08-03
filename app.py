@@ -23,7 +23,7 @@ def main():
         start = timeit.default_timer()
         df_raw = load_data(data_file_1)
         df = df_raw.copy()
-	df.drop(columns=["deviceModel"], inplace=True, errors='ignore')
+	df.drop(columns=["deviceModel"], inplace=True)
 
 	    
         #df.columns = ["DataHora", "Glicemia"]
@@ -152,6 +152,7 @@ def main():
 if __name__ == '__main__':
 
 	main()
+
 
 
 
