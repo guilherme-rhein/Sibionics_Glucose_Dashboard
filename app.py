@@ -39,7 +39,6 @@ def main():
         df["DataHora"] = pd.to_datetime(df["DataHora"].str.replace(" GMT-3", ""), format="%d-%m-%Y %H:%M", errors='coerce')
         df = df.sort_values("DataHora")
         df = df.dropna(subset=["DataHora", "Glicemia"])
-	df = df.dropna()
 
 
         # Filters
@@ -153,4 +152,5 @@ def main():
 if __name__ == '__main__':
 
 	main()
+
 
